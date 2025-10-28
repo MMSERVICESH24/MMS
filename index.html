@@ -1,291 +1,72 @@
-<section class="section dark-bg" id="services">
-  <h2>Nos Services sur toute l’étendue de la RDC</h2>
-  <p>Nous intervenons dans les 26 provinces de la République Démocratique du Congo. Cliquez sur une province pour découvrir les territoires couverts.</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MMSERVICES</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Menu latéral -->
+  <aside class="sidebar" id="sidebar">
+    <button class="close-btn" onclick="toggleMenu()">×</button>
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#abonnement">Abonnement</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
 
-  <div class="accordion">
+  <!-- Bouton menu -->
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-    <!-- 1 -->
-    <div class="province">
-      <button class="accordion-btn">Kinshasa ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Funa</li>
-          <li>Lukunga</li>
-          <li>Tshangu</li>
-          <li>Mont-Amba</li>
-          <li>Selembao</li>
-        </ul>
-      </div>
+  <!-- Contenu principal -->
+  <main id="accueil" class="hero">
+    <h1 class="logo-text">MMSERVICES</h1>
+    <p class="slogan">
+      Transportez vos colis partout en RDC, rapidement et en toute sécurité.
+    </p>
+    <div class="btn-group">
+      <a href="#services" class="btn blue">En savoir plus</a>
+      <a href="#contact" class="btn dark">Nous contacter</a>
     </div>
+  </main>
 
-    <!-- 2 -->
-    <div class="province">
-      <button class="accordion-btn">Kongo-Central ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Muanda</li><li>Boma</li><li>Matadi</li><li>Songololo</li><li>Kimpese</li><li>Luozi</li><li>Seke-Banza</li>
-        </ul>
-      </div>
-    </div>
+  <!-- Section Services -->
+  <section id="services" class="section">
+    <h2>Nos Services</h2>
+    <p>
+      Nous transportons vos colis dans toutes les provinces depuis Kinshasa,
+      avec rapidité, fiabilité et professionnalisme.
+    </p>
+    <ul class="service-list">
+      <li>Transport inter-provincial</li>
+      <li>Livraison express</li>
+      <li>Logistique et stockage</li>
+    </ul>
+  </section>
 
-    <!-- 3 -->
-    <div class="province">
-      <button class="accordion-btn">Kwango ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Kasongo-Lunda</li><li>Kenge</li><li>Popokabaka</li><li>Kahemba</li><li>Feshi</li>
-        </ul>
-      </div>
-    </div>
+  <!-- Section Abonnement -->
+  <section id="abonnement" class="section dark-bg">
+    <h2>Offre Abonnement</h2>
+    <p>
+      Nos abonnés bénéficient d’une flexibilité totale : nous livrons vos colis à nos frais,
+      vous remboursez plus tard. Devenez membre MMS pour profiter de ces avantages exclusifs.
+    </p>
+  </section>
 
-    <!-- 4 -->
-    <div class="province">
-      <button class="accordion-btn">Kwilu ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Kikwit</li><li>Gungu</li><li>Idiofa</li><li>Bagata</li><li>Bulungu</li>
-        </ul>
-      </div>
-    </div>
+  <!-- Section Contact -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p><strong>Téléphone :</strong> +243 900 000 000</p>
+    <p><strong>Email :</strong> contact@mms-rdc.com</p>
+  </section>
 
-    <!-- 5 -->
-    <div class="province">
-      <button class="accordion-btn">Mai-Ndombe ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Inongo</li><li>Kutu</li><li>Kiri</li><li>Mushie</li><li>Bolobo</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 6 -->
-    <div class="province">
-      <button class="accordion-btn">Tshuapa ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Boende</li><li>Befale</li><li>Bosondjo</li><li>Ikela</li><li>Djolu</li><li>Monkoto</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 7 -->
-    <div class="province">
-      <button class="accordion-btn">Mongala ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Bumba</li><li>Bongandanga</li><li>Lisala</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 8 -->
-    <div class="province">
-      <button class="accordion-btn">Nord-Ubangi ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Gbadolite</li><li>Mobayi-Mbongo</li><li>Yakoma</li><li>Businga</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 9 -->
-    <div class="province">
-      <button class="accordion-btn">Sud-Ubangi ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Gemena</li><li>Budjala</li><li>Kungu</li><li>Zongo</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 10 -->
-    <div class="province">
-      <button class="accordion-btn">Équateur ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Mbandaka</li><li>Basankusu</li><li>Bikoro</li><li>Bolomba</li><li>Lukolela</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 11 -->
-    <div class="province">
-      <button class="accordion-btn">Nord-Kivu ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Goma</li><li>Beni</li><li>Lubero</li><li>Masisi</li><li>Walikale</li><li>Rutshuru</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 12 -->
-    <div class="province">
-      <button class="accordion-btn">Sud-Kivu ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Bukavu</li><li>Uvira</li><li>Fizi</li><li>Walungu</li><li>Kalehe</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 13 -->
-    <div class="province">
-      <button class="accordion-btn">Maniema ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Kindu</li><li>Kasongo</li><li>Kabambare</li><li>Pangi</li><li>Kailo</li><li>Lubutu</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 14 -->
-    <div class="province">
-      <button class="accordion-btn">Tanganyika ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Kalemie</li><li>Nyunzu</li><li>Kabalo</li><li>Manono</li><li>Kongolo</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 15 -->
-    <div class="province">
-      <button class="accordion-btn">Haut-Lomami ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Kamina</li><li>Kaniama</li><li>Malemba-Nkulu</li><li>Bukama</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 16 -->
-    <div class="province">
-      <button class="accordion-btn">Lomami ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Kabinda</li><li>Ngandajika</li><li>Luilu</li><li>Lubao</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 17 -->
-    <div class="province">
-      <button class="accordion-btn">Sankuru ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Lusambo</li><li>Lodja</li><li>Kole</li><li>Lubefu</li><li>Katako-Kombe</li><li>Lubao</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 18 -->
-    <div class="province">
-      <button class="accordion-btn">Haut-Katanga ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Lubumbashi</li><li>Likasi</li><li>Kipushi</li><li>Kambove</li><li>Sakania</li><li>Kasenga</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 19 -->
-    <div class="province">
-      <button class="accordion-btn">Lualaba ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Kolwezi</li><li>Mutshatsha</li><li>Lubudi</li><li>Sandoa</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 20 -->
-    <div class="province">
-      <button class="accordion-btn">Haut-Uélé ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Isiro</li><li>Rungu</li><li>Dungu</li><li>Watsa</li><li>Niangara</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 21 -->
-    <div class="province">
-      <button class="accordion-btn">Bas-Uélé ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Buta</li><li>Aketi</li><li>Bondo</li><li>Ango</li><li>Poko</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 22 -->
-    <div class="province">
-      <button class="accordion-btn">Ituri ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Bunia</li><li>Irumu</li><li>Aru</li><li>Mahagi</li><li>Mambasa</li><li>Djugu</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 23 -->
-    <div class="province">
-      <button class="accordion-btn">Tshopo ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Kisangani</li><li>Banalia</li><li>Bafwasende</li><li>Opala</li><li>Isangi</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 24 -->
-    <div class="province">
-      <button class="accordion-btn">Kasaï ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Tshikapa</li><li>Luebo</li><li>Mweka</li><li>Kamonia</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 25 -->
-    <div class="province">
-      <button class="accordion-btn">Kasaï-Central ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Kananga</li><li>Demba</li><li>Luebo</li><li>Luiza</li><li>Dibaya</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 26 -->
-    <div class="province">
-      <button class="accordion-btn">Kasaï-Oriental ▶</button>
-      <div class="accordion-content">
-        <ul>
-          <li>Mbuji-Mayi</li><li>Kabeya-Kamwanga</li><li>Lupatapata</li><li>Tshilenge</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<script>
-document.querySelectorAll('.accordion-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    const content = button.nextElementSibling;
-    const open = content.style.maxHeight;
-
-    document.querySelectorAll('.accordion-content').forEach(c => {
-      c.style.maxHeight = null;
-      c.classList.remove('active');
-    });
-
-    if (!open) {
-      content.style.maxHeight = content.scrollHeight + 'px';
-      content.classList.add('active');
-    }
-  });
-});
-</script>
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 Mulenda Mumbimbi Service — Tous droits réservés.
+  </footer>
+</body>
+</html>
