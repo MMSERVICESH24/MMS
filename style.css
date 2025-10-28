@@ -1,3 +1,4 @@
+/* --- Réinitialisation --- */
 * {
   margin: 0;
   padding: 0;
@@ -5,10 +6,12 @@
   scroll-behavior: smooth;
 }
 
+/* --- Corps global --- */
 body {
   font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle at top, #0a174e, #000);
   color: #fff;
+  background: radial-gradient(circle at top, #001031, #000);
+  background-attachment: fixed;
   overflow-x: hidden;
 }
 
@@ -16,14 +19,15 @@ body {
 .sidebar {
   position: fixed;
   top: 0;
-  left: -250px;
-  width: 220px;
+  left: -260px;
+  width: 240px;
   height: 100%;
   background: rgba(0, 10, 30, 0.95);
   padding: 60px 20px;
   transition: 0.4s ease;
   z-index: 1000;
-  box-shadow: 3px 0 10px rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(0, 200, 255, 0.2);
 }
 
 .sidebar.open {
@@ -32,18 +36,22 @@ body {
 
 .sidebar nav a {
   display: block;
-  color: white;
+  color: #e3f2fd;
   text-decoration: none;
   font-size: 1.1rem;
-  margin: 15px 0;
+  margin: 20px 0;
   transition: 0.3s;
+  letter-spacing: 1px;
 }
 
 .sidebar nav a:hover {
-  color: #4fc3f7;
+  color: #00b4ff;
+  text-shadow: 0 0 10px #00b4ff;
 }
 
-.menu-btn, .close-btn {
+/* --- Boutons menu --- */
+.menu-btn,
+.close-btn {
   position: fixed;
   top: 20px;
   left: 20px;
@@ -58,11 +66,13 @@ body {
 
 .menu-btn:hover {
   transform: scale(1.1);
+  color: #00b4ff;
 }
 
 .close-btn {
-  top: 10px;
-  left: 180px;
+  top: 15px;
+  left: 200px;
+  font-size: 2rem;
 }
 
 /* --- Section d’accueil --- */
@@ -75,7 +85,7 @@ body {
   text-align: center;
   background: linear-gradient(135deg, #001133, #002b80, #0d47a1);
   background-size: 400% 400%;
-  animation: gradientFlow 10s ease infinite;
+  animation: gradientFlow 8s ease infinite;
   padding: 0 20px;
 }
 
@@ -86,14 +96,15 @@ body {
 }
 
 .logo-text {
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-size: 4rem;
+  font-weight: 900;
   background: linear-gradient(90deg, #00b4ff, #ffffff, #007bff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 300%;
   animation: shine 6s linear infinite;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 @keyframes shine {
@@ -108,7 +119,7 @@ body {
   color: #e3f2fd;
 }
 
-/* --- Boutons --- */
+/* --- Boutons d’action --- */
 .btn-group {
   display: flex;
   gap: 15px;
@@ -127,83 +138,115 @@ body {
 .btn.blue {
   background: #007bff;
   color: white;
+  box-shadow: 0 0 10px #007bff;
 }
 
 .btn.dark {
   background: #111;
   color: white;
+  box-shadow: 0 0 10px #00b4ff;
 }
 
 .btn:hover {
   transform: scale(1.05);
-  opacity: 0.9;
+  box-shadow: 0 0 20px #00b4ff;
 }
 
-/* --- Sections --- */
-.section {
-  padding: 80px 20px;
+/* --- Pages internes --- */
+.page-header {
+  padding: 100px 20px 40px;
   text-align: center;
-  background: #f5f5f5;
-  color: #111;
+  background: rgba(0, 0, 20, 0.7);
+  border-bottom: 1px solid rgba(0, 200, 255, 0.1);
 }
 
-.section.dark-bg {
-  background: #0a174e;
-  color: white;
+.page-header h1 {
+  font-size: 2.3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #00b4ff;
+  text-shadow: 0 0 15px #007bff;
 }
 
+.content {
+  padding: 50px 20px 100px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+/* --- Liste des services --- */
 .service-list {
   list-style: none;
   margin-top: 20px;
+  font-size: 1.1rem;
 }
 
 .service-list li {
-  margin: 10px 0;
-  font-weight: 500;
+  margin: 15px 0;
+  transition: 0.3s;
 }
 
-/* --- Footer --- */
-.footer {
-  text-align: center;
-  padding: 20px;
-  background: #000;
-  color: #bbb;
-  font-size: 0.9rem;
+.service-list li:hover {
+  color: #00b4ff;
+  text-shadow: 0 0 10px #00b4ff;
 }
 
-
-.accordion {
-  margin-top: 30px;
-  max-width: 800px;
-  margin-inline: auto;
-  text-align: left;
-}
-
-.accordion-btn {
-  background: #002b80;
-  color: #fff;
-  border: none;
-  width: 100%;
-  text-align: left;
+/* --- Provinces --- */
+.province {
+  background: rgba(0, 20, 50, 0.7);
   padding: 15px;
-  font-size: 1.1rem;
+  margin: 10px auto;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 5px;
+  transition: 0.3s;
+  max-width: 600px;
+}
+
+.province:hover {
+  background: rgba(0, 40, 80, 0.9);
+  box-shadow: 0 0 15px #007bff;
+}
+
+.territoires {
+  display: none;
   margin-top: 10px;
-  transition: background 0.3s;
+  color: #e0e0e0;
+  font-size: 0.95rem;
 }
 
-.accordion-btn:hover { background: #0040aa; }
-
-.accordion-content {
-  background: rgba(255, 255, 255, 0.05);
-  border-left: 3px solid #00b4ff;
-  padding: 0 15px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
+.province.open .territoires {
+  display: block;
+  animation: fadeIn 0.4s ease;
 }
 
-.accordion-content.active {
-  padding: 10px 15px;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Contact --- */
+.contact-list {
+  list-style: none;
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+.contact-list li {
+  margin: 15px 0;
+  color: #e3f2fd;
+  transition: 0.3s;
+}
+
+.contact-list li:hover {
+  color: #00b4ff;
+  text-shadow: 0 0 10px #00b4ff;
+}
+
+.note {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #bbb;
+  opacity: 0.8;
 }
