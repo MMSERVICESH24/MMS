@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MMSERVICES</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Menu latéral -->
+  <aside class="sidebar" id="sidebar">
+    <button class="close-btn" onclick="toggleMenu()">×</button>
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#abonnement">Abonnement</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+
+  <!-- Bouton menu -->
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <!-- Contenu principal -->
+  <main id="accueil" class="hero">
+    <h1 class="logo-text">MMSERVICES</h1>
+    <p class="slogan">
+      Transportez vos colis partout en RDC, rapidement et en toute sécurité.
+    </p>
+    <div class="btn-group">
+      <a href="#services" class="btn blue">En savoir plus</a>
+      <a href="#contact" class="btn dark">Nous contacter</a>
+    </div>
+  </main>
+
+  <!-- Section Services -->
+  <section id="services" class="section">
+    <h2>Nos Services</h2>
+    <p>
+      Nous transportons vos colis dans toutes les provinces depuis Kinshasa,
+      avec rapidité, fiabilité et professionnalisme.
+    </p>
+    <ul class="service-list">
+      <li>Transport inter-provincial</li>
+      <li>Livraison express</li>
+      <li>Logistique et stockage</li>
+    </ul>
+  </section>
+
+  <!-- Section Abonnement -->
+  <section id="abonnement" class="section dark-bg">
+    <h2>Offre Abonnement</h2>
+    <p>
+      Nos abonnés bénéficient d’une flexibilité totale : nous livrons vos colis à nos frais,
+      vous remboursez plus tard. Devenez membre MMS pour profiter de ces avantages exclusifs.
+    </p>
+  </section>
+
+  <!-- Section Contact -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p><strong>Téléphone :</strong> +243 900 000 000</p>
+    <p><strong>Email :</strong> contact@mms-rdc.com</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 Mulenda Mumbimbi Service — Tous droits réservés.
+  </footer>
+</body>
+</html>
