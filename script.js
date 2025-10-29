@@ -40,21 +40,21 @@ document.querySelectorAll('.accordion-btn').forEach(button => {
   });
 });
 
-// Slider pour les territoires
-document.querySelectorAll('.accordion-content').forEach(content => {
-  const ul = content.querySelector('ul');
-  const nextBtn = content.querySelector('.next');
-  const prevBtn = content.querySelector('.prev');
-  let offset = 0;
+document.querySelectorAll('.accordion-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const content = button.nextElementSibling;
+    const arrow = button.querySelector('span');
 
-  nextBtn.addEventListener('click', () => {
-    const maxScroll = ul.scrollWidth - ul.clientWidth;
-    offset = Math.min(offset + 100, maxScroll);
-    ul.style.transform = `translateX(-${offset}px)`;
-  });
+    if (content.style.display === 'block') {
+      content.style.display = 'none';
+      arrow.textContent = '▶️';
+    } else {
+      // Fermer tous les autres accordions
+      document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
+      document.querySelectorAll('.accordion-btn span').forEach(s => s.textContent = '▶️');
 
-  prevBtn.addEventListener('click', () => {
-    offset = Math.max(offset - 100, 0);
-    ul.style.transform = `translateX(-${offset}px)`;
+      content.style.display = 'block';
+      arrow.textContent = '🔽';
+    }
   });
 });
