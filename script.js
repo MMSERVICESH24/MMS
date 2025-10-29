@@ -25,21 +25,6 @@ buttons.forEach(btn => {
 
 
 
-// Accordion pour ouvrir/fermer les provinces
-document.querySelectorAll('.accordion-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    const content = button.nextElementSibling;
-
-    if (content.style.display === 'flex') {
-      content.style.display = 'none';
-    } else {
-      // Fermer tous les autres accordions
-      document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
-      content.style.display = 'flex';
-    }
-  });
-});
-
 document.querySelectorAll('.accordion-btn').forEach(button => {
   button.addEventListener('click', () => {
     const content = button.nextElementSibling;
