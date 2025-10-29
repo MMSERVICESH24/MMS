@@ -21,10 +21,6 @@ buttons.forEach(btn => {
     }
   });
 });
-
-
-
-
 document.querySelectorAll('.accordion-btn').forEach(button => {
   button.addEventListener('click', () => {
     const content = button.nextElementSibling;
