@@ -1,6 +1,246 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MMSERVICES</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top, #0a174e, #000);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* --- Menu latéral --- */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 220px;
+      height: 100%;
+      background: rgba(0, 10, 30, 0.95);
+      padding: 60px 20px;
+      transition: 0.4s ease;
+      z-index: 1000;
+      box-shadow: 3px 0 10px rgba(0,0,0,0.4);
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin: 15px 0;
+      transition: 0.3s;
+    }
+
+    .sidebar nav a:hover {
+      color: #4fc3f7;
+    }
+
+    .menu-btn, .close-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1100;
+      transition: transform 0.3s;
+    }
+
+    .menu-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .close-btn {
+      top: 10px;
+      left: 180px;
+    }
+
+    /* --- Section d’accueil --- */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #001133, #002b80, #0d47a1);
+      background-size: 400% 400%;
+      animation: gradientFlow 10s ease infinite;
+      padding: 0 20px;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .logo-text {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #00b4ff, #ffffff, #007bff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 300%;
+      animation: shine 6s linear infinite;
+      letter-spacing: 2px;
+    }
+
+    @keyframes shine {
+      0% { background-position: 0%; }
+      100% { background-position: 100%; }
+    }
+
+    .slogan {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 20px 0;
+      color: #e3f2fd;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn.blue {
+      background: #007bff;
+      color: white;
+    }
+
+    .btn.dark {
+      background: #111;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    /* --- Sections --- */
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    .section.dark-bg {
+      background: #0a174e;
+      color: white;
+    }
+
+    .service-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .service-list li {
+      margin: 10px 0;
+      font-weight: 500;
+    }
+
+    /* --- Footer --- */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #bbb;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="menu-btn" id="menu-btn">☰</button>
+
+  <div class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">×</button>
+    <nav>
+      <a href="#home">Accueil</a>
+      <a href="#services">Nos services</a>
+      <a href="#about">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <section class="hero" id="home">
+    <h1 class="logo-text">MMSERVICES</h1>
+    <p class="slogan">Nous transportons vos colis dans toutes les provinces de Kinshasa, avec rapidité, fiabilité et sécurité.</p>
+    <div class="btn-group">
+      <a href="#services" class="btn blue">Découvrir nos services</a>
+      <a href="#contact" class="btn dark">Nous contacter</a>
+    </div>
+  </section>
+
+  <section class="section dark-bg" id="services">
+    <h2>Nos Services</h2>
+    <ul class="service-list">
+      <li>Transport rapide de colis à travers Kinshasa</li>
+      <li>Livraison express inter-province</li>
+      <li>Suivi en temps réel</li>
+      <li>Service client disponible 24h/24</li>
+    </ul>
+  </section>
+
+  <section class="section" id="about">
+    <h2>À propos de nous</h2>
+    <p>MMSERVICES est une entreprise dédiée à simplifier vos envois. Notre mission : offrir un service logistique moderne, efficace et digne de confiance.</p>
+  </section>
+
+  <section class="section dark-bg" id="contact">
+    <h2>Contactez-nous</h2>
+    <p>📞 Téléphone : +243 900 000 000<br>✉️ Email : contact@mmservices.com</p>
+  </section>
+
+  <footer class="footer">
+    © 2025 MMSERVICES - Tous droits réservés
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const closeBtn = document.getElementById("close-btn");
+    const sidebar = document.getElementById("sidebar");
+
+    menuBtn.addEventListener("click", () => sidebar.classList.add("open"));
+    closeBtn.addEventListener("click", () => sidebar.classList.remove("open"));
+  </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MMServices - Provinces</title>
@@ -207,3 +447,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+<footer class="footer">
+    © 2025 MMSERVICES - Tous droits réservés
+  </footer>
