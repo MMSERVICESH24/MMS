@@ -1,56 +1,135 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Provinces - RDC Services</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provinces de nos services</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        .province-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: rgba(0, 10, 30, 0.6);
+            border: none;
+            color: #fff;
+            padding: 10px 15px;
+            margin: 8px 0;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        .province-btn:hover {
+            background: rgba(0, 40, 90, 0.8);
+        }
+        .province-btn span {
+            font-size: 1.3rem;
+            transition: transform 0.3s;
+        }
+        .province-btn.active span {
+            transform: rotate(90deg);
+        }
+
+        .territoires {
+            display: none;
+            max-height: 180px;
+            overflow-y: auto;
+            margin-left: 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            padding: 8px 15px;
+        }
+
+        .territoires li {
+            list-style: square;
+            margin: 4px 0;
+        }
+    </style>
 </head>
 <body>
-  <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    <header>
+        <button id="menu-btn">≡</button>
+        <h1>Provinces de nos services</h1>
+    </header>
 
-  <aside class="sidebar" id="sidebar">
-    <button class="close-btn" onclick="toggleSidebar()">×</button>
-    <nav>
-      <a href="main.html">Accueil</a>
-      <a href="services.html">Nos services</a>
-      <a href="provinces.html">Provinces</a>
-      <a href="contact.html">Contacts</a>
+    <main>
+        <div id="province-container">
+            <!-- Chaque province avec bouton et territoires -->
+        </div>
+    </main>
+
+    <nav id="side-menu">
+        <button id="close-btn">×</button>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="main.html">Accueil principal</a></li>
+            <li><a href="services.html">Nos services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </nav>
-  </aside>
 
-  <section class="section dark-bg">
-    <h1>Provinces de nos services</h1>
-    <ul class="province-list">
-      <li onclick="toggleList(this)">Kinshasa >><ul><li>Selembao</li><li>Lingwala</li><li>Gombe</li><li>Ngaliema</li></ul></li>
-      <li onclick="toggleList(this)">Kongo Central >><ul><li>Matadi</li><li>Boma</li><li>Muanda</li></ul></li>
-      <li onclick="toggleList(this)">Kwango >><ul><li>Kenge</li><li>Popokabaka</li><li>Kasongo-Lunda</li></ul></li>
-      <li onclick="toggleList(this)">Kwilu >><ul><li>Bandundu</li><li>Idiofa</li><li>Kikwit</li></ul></li>
-      <li onclick="toggleList(this)">Mai-Ndombe >><ul><li>Inongo</li><li>Nioki</li></ul></li>
-      <li onclick="toggleList(this)">Équateur >><ul><li>Mbandaka</li><li>Bikoro</li></ul></li>
-      <li onclick="toggleList(this)">Mongala >><ul><li>Lisala</li><li>Bumba</li></ul></li>
-      <li onclick="toggleList(this)">Nord-Ubangi >><ul><li>Gbadolite</li></ul></li>
-      <li onclick="toggleList(this)">Sud-Ubangi >><ul><li>Gemena</li><li>Zongo</li></ul></li>
-      <li onclick="toggleList(this)">Tshuapa >><ul><li>Boende</li></ul></li>
-      <li onclick="toggleList(this)">Tshopo >><ul><li>Kisangani</li></ul></li>
-      <li onclick="toggleList(this)">Bas-Uélé >><ul><li>Buta</li></ul></li>
-      <li onclick="toggleList(this)">Haut-Uélé >><ul><li>Isiro</li></ul></li>
-      <li onclick="toggleList(this)">Ituri >><ul><li>Bunia</li><li>Mambasa</li></ul></li>
-      <li onclick="toggleList(this)">Haut-Lomami >><ul><li>Kamina</li></ul></li>
-      <li onclick="toggleList(this)">Haut-Katanga >><ul><li>Lubumbashi</li><li>Kasumbalesa</li></ul></li>
-      <li onclick="toggleList(this)">Tanganyika >><ul><li>Kalemie</li></ul></li>
-      <li onclick="toggleList(this)">Lualaba >><ul><li>Kolwezi</li></ul></li>
-      <li onclick="toggleList(this)">Kasaï >><ul><li>Tshikapa</li></ul></li>
-      <li onclick="toggleList(this)">Kasaï-Central >><ul><li>Kananga</li></ul></li>
-      <li onclick="toggleList(this)">Kasaï-Oriental >><ul><li>Mbuji-Mayi</li></ul></li>
-      <li onclick="toggleList(this)">Lomami >><ul><li>Kabinda</li></ul></li>
-      <li onclick="toggleList(this)">Sankuru >><ul><li>Lodja</li></ul></li>
-      <li onclick="toggleList(this)">Nord-Kivu >><ul><li>Goma</li><li>Beni</li></ul></li>
-      <li onclick="toggleList(this)">Sud-Kivu >><ul><li>Bukavu</li></ul></li>
-      <li onclick="toggleList(this)">Maniema >><ul><li>Kindu</li></ul></li>
-    </ul>
-  </section>
+    <script>
+        const provincesData = {
+            "Kinshasa": ["Ngaliema", "Mont-Ngafula", "Masina", "Selembao", "Lemba", "N'djili"],
+            "Kongo Central": ["Matadi", "Boma", "Mbanza-Ngungu", "Luozi", "Songololo"],
+            "Kwango": ["Kenge", "Feshi", "Kahemba", "Kasongo-Lunda", "Popokabaka"],
+            "Kwilu": ["Bandundu", "Bagata", "Bulungu", "Idiofa", "Kikwit", "Gungu"],
+            "Mai-Ndombe": ["Inongo", "Kiri", "Kutu", "Oshwe"],
+            "Équateur": ["Mbandaka", "Bolomba", "Bikoro", "Lukolela", "Ingende"],
+            "Mongala": ["Lisala", "Bumba", "Bongandanga"],
+            "Nord-Ubangi": ["Gbadolite", "Bosobolo", "Businga"],
+            "Sud-Ubangi": ["Gemena", "Libenge", "Zongo"],
+            "Tshuapa": ["Boende", "Ikela", "Befale", "Djolu"],
+            "Tshopo": ["Kisangani", "Ubundu", "Bafwasende", "Banalia"],
+            "Haut-Uélé": ["Isiro", "Watsa", "Wamba", "Niangara"],
+            "Bas-Uélé": ["Buta", "Aketi", "Bondo", "Ango"],
+            "Ituri": ["Bunia", "Aru", "Djugu", "Irumu", "Mahagi"],
+            "Nord-Kivu": ["Goma", "Beni", "Lubero", "Rutshuru", "Walikale"],
+            "Sud-Kivu": ["Bukavu", "Fizi", "Kabare", "Mwenga", "Shabunda", "Uvira"],
+            "Maniema": ["Kindu", "Kasongo", "Kabambare", "Punia"],
+            "Haut-Lomami": ["Kamina", "Bukama", "Kabongo", "Malemba-Nkulu"],
+            "Lomami": ["Kabinda", "Mwene-Ditu", "Ngandajika"],
+            "Sankuru": ["Lusambo", "Lodja", "Katako-Kombe", "Kole"],
+            "Kasai": ["Luebo", "Tshikapa", "Dekese", "Mweka"],
+            "Kasai Central": ["Kananga", "Luiza", "Demba", "Kazumba"],
+            "Kasai Oriental": ["Mbuji-Mayi", "Miabi", "Kabeya-Kamwanga"],
+            "Haut-Katanga": ["Lubumbashi", "Likasi", "Kipushi", "Kasenga", "Pweto"],
+            "Lualaba": ["Kolwezi", "Mutshatsha", "Lubudi", "Sandoa"],
+            "Tanganyika": ["Kalemie", "Kongolo", "Moba", "Nyunzu"]
+        };
 
-  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
+        const container = document.querySelector("#province-container");
+        const clickSound = new Audio("click.mp3");
+
+        Object.entries(provincesData).forEach(([province, territoires]) => {
+            const section = document.createElement("div");
+            
+            const btn = document.createElement("button");
+            btn.className = "province-btn";
+            btn.innerHTML = `${province} <span>›</span>`;
+            
+            const list = document.createElement("ul");
+            list.className = "territoires";
+            territoires.forEach(t => {
+                const li = document.createElement("li");
+                li.textContent = t;
+                list.appendChild(li);
+            });
+
+            btn.addEventListener("click", () => {
+                const isActive = btn.classList.toggle("active");
+                list.style.display = isActive ? "block" : "none";
+                clickSound.play();
+            });
+
+            section.appendChild(btn);
+            section.appendChild(list);
+            container.appendChild(section);
+        });
+    </script>
 </body>
 </html>
