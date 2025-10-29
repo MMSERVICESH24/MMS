@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MMSERVICES</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MMSERVICES — Accueil</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
-  <button class="menu-btn">☰</button>
+  <!-- Toggle bouton -->
+  <button class="btn-toggle" id="btnToggle" aria-label="Ouvrir le menu">☰</button>
 
-  <aside class="sidebar">
-    <button class="close-btn">×</button>
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-hidden="true">
+    <div class="brand">MMSERVICES</div>
     <nav>
       <a href="index.html">Accueil</a>
-      <a href="services.html">Nos Services</a>
+      <a href="services.html">Nos services</a>
       <a href="provinces.html">Provinces</a>
       <a href="contact.html">Contact</a>
     </nav>
   </aside>
 
-  <section class="hero">
-    <h1 class="logo-text">MMSERVICES</h1>
-    <p class="slogan">Transport rapide et sécurisé sur toute l’étendue de la RDC</p>
+  <!-- Main content -->
+  <main class="main" id="main">
+    <!-- Hero -->
+    <header class="hero">
+      <h1 class="hero-title">MMSERVICES</h1>
+      <p class="hero-sub">Transport rapide et sécurisé sur toute l'étendue de la RDC</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="services.html">Nos services</a>
+        <a class="btn outline" href="provinces.html">Provinces</a>
+        <a class="btn outline" href="contact.html">Contact</a>
+      </div>
+    </header>
 
-    <div class="btn-group">
-      <a href="services.html" class="btn blue">Nos Services</a>
-      <a href="provinces.html" class="btn dark">Voir les Provinces</a>
-      <a href="contact.html" class="btn blue">Nous Contacter</a>
-    </div>
-  </section>
+    <!-- Services preview -->
+    <section class="section" id="servicesPreview">
+      <h2>Nos services</h2>
+      <p>Livraison express, transport inter-provincial, logistique et suivi en temps réel — partout en RDC.</p>
+    </section>
 
-  <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c4b7b4a8e5.mp3?filename=click-124467.mp3"></audio>
+    <!-- Provinces accordion (preview on index) -->
+    <section class="section" id="provincesPreview">
+      <h2>Provinces de nos services</h2>
+      <div class="accordion" id="accordionIndex">
+        <!-- JS injectera les provinces ici (même données que dans script.js) -->
+      </div>
+    </section>
+
+    <footer class="footer">© 2025 MMSERVICES — Tous droits réservés</footer>
+  </main>
 </body>
 </html>
