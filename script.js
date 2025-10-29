@@ -1,41 +1,21 @@
-const buttons = document.querySelectorAll('.accordion-btn');
-const sound = document.getElementById('clickSound');
-
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const content = btn.nextElementSibling;
-    const open = content.style.maxHeight;
-
-    document.querySelectorAll('.accordion-content').forEach(c => {
-      c.style.maxHeight = null;
-      c.classList.remove('active');
-    });
-
-    if (!open) {
-      content.style.maxHeight = content.scrollHeight + 'px';
-      content.classList.add('active');
-      if (sound) {
-        sound.currentTime = 0;
-        sound.play();
-      }
-    }
+// Smooth navigation for internal links (inline scroll to start of section)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e){
+    const target = document.querySelector(this.getAttribute('href'));
+    if(!target) return;
+    e.preventDefault();
+    // scroll the horizontal wrapper so that the target's left is visible.
+    const wrap = document.getElementById('hwrap');
+    const left = target.offsetLeft;
+    wrap.scrollTo({ left, behavior: 'smooth' });
   });
 });
-document.querySelectorAll('.accordion-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    const content = button.nextElementSibling;
-    const arrow = button.querySelector('span');
 
-    if (content.style.display === 'block') {
-      content.style.display = 'none';
-      arrow.textContent = '▶️';
-    } else {
-      // Fermer tous les autres accordions
-      document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
-      document.querySelectorAll('.accordion-btn span').forEach(s => s.textContent = '▶️');
-
-      content.style.display = 'block';
-      arrow.textContent = '🔽';
-    }
-  });
-});
+// Optional: mouse wheel → horizontal scroll for easier navigation on desktop
+const wrap = document.getElementById('hwrap');
+wrap.addEventListener('wheel', function(e){
+  if(Math.abs(e.deltaY) < 1) return;
+  // prevent vertical page scroll and move horizontally
+  e.preventDefault();
+  wrap.scrollBy({ left: e.deltaY * 1.5, behavior: 'auto' });
+}, { passive: false });
