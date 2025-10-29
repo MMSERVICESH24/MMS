@@ -1,459 +1,142 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MMSERVICES</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Poppins", sans-serif;
-      background: radial-gradient(circle at top, #0a174e, #000);
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* --- Menu latéral --- */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 220px;
-      height: 100%;
-      background: rgba(0, 10, 30, 0.95);
-      padding: 60px 20px;
-      transition: 0.4s ease;
-      z-index: 1000;
-      box-shadow: 3px 0 10px rgba(0,0,0,0.4);
-    }
-
-    .sidebar.open {
-      left: 0;
-    }
-
-    .sidebar nav a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      font-size: 1.1rem;
-      margin: 15px 0;
-      transition: 0.3s;
-    }
-
-    .sidebar nav a:hover {
-      color: #4fc3f7;
-    }
-
-    .menu-btn, .close-btn {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: transparent;
-      border: none;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1100;
-      transition: transform 0.3s;
-    }
-
-    .menu-btn:hover {
-      transform: scale(1.1);
-    }
-
-    .close-btn {
-      top: 10px;
-      left: 180px;
-    }
-
-    /* --- Section d’accueil --- */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(135deg, #001133, #002b80, #0d47a1);
-      background-size: 400% 400%;
-      animation: gradientFlow 10s ease infinite;
-      padding: 0 20px;
-    }
-
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .logo-text {
-      font-size: 3.5rem;
-      font-weight: 800;
-      background: linear-gradient(90deg, #00b4ff, #ffffff, #007bff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 300%;
-      animation: shine 6s linear infinite;
-      letter-spacing: 2px;
-    }
-
-    @keyframes shine {
-      0% { background-position: 0%; }
-      100% { background-position: 100%; }
-    }
-
-    .slogan {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 20px 0;
-      color: #e3f2fd;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn {
-      padding: 12px 28px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .btn.blue {
-      background: #007bff;
-      color: white;
-    }
-
-    .btn.dark {
-      background: #111;
-      color: white;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-
-    /* --- Sections --- */
-    .section {
-      padding: 80px 20px;
-      text-align: center;
-      background: #f5f5f5;
-      color: #111;
-    }
-
-    .section.dark-bg {
-      background: #0a174e;
-      color: white;
-    }
-
-    .service-list {
-      list-style: none;
-      margin-top: 20px;
-    }
-
-    .service-list li {
-      margin: 10px 0;
-      font-weight: 500;
-    }
-
-    /* --- Footer --- */
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background: #000;
-      color: #bbb;
-      font-size: 0.9rem;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>M&M Services SARL</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <button class="menu-btn" id="menu-btn">☰</button>
-
-  <div class="sidebar" id="sidebar">
-    <button class="close-btn" id="close-btn">×</button>
-    <nav>
-      <a href="#home">Accueil</a>
-      <a href="#services">Nos services</a>
-      <a href="#about">À propos</a>
+  <!-- Navigation fixe -->
+  <header class="topbar">
+    <div class="brand">M&M Services SARL</div>
+    <nav class="topnav">
+      <a href="#main">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#partners">Partenaires</a>
       <a href="#contact">Contact</a>
     </nav>
-  </div>
+  </header>
 
-  <section class="hero" id="home">
-    <h1 class="logo-text">MMSERVICES</h1>
-    <p class="slogan">Nous transportons vos colis dans toutes les provinces de Kinshasa, avec rapidité, fiabilité et sécurité.</p>
-    <div class="btn-group">
-      <a href="#services" class="btn blue">Découvrir nos services</a>
-      <a href="#contact" class="btn dark">Nous contacter</a>
-    </div>
-  </section>
+  <!-- Container horizontal -->
+  <main class="hwrap" id="hwrap" aria-label="Navigation principale horizontale">
+    <!-- Page 1 : Accueil -->
+    <section class="hpage" id="main">
+      <div class="card">
+        <h1>BIENVENUE CHEZ<br><span class="accent">M&amp;M SERVICES SARL</span></h1>
+        <p class="lead">Commissionnaire en douane par excellence en RDC.<br>Vous êtes notre priorité et la raison de notre existence.</p>
 
-  <section class="section dark-bg" id="services">
-    <h2>Nos Services</h2>
-    <ul class="service-list">
-      <li>Transport rapide de colis à travers Kinshasa</li>
-      <li>Livraison express inter-province</li>
-      <li>Suivi en temps réel</li>
-      <li>Service client disponible 24h/24</li>
-    </ul>
-  </section>
+        <div class="box">
+          <p><strong>M&amp;M Services SARL</strong> est là pour contribuer à l’épanouissement de votre business. Le fret, la douane, l’expertise comptable, le commerce général… C'est notre spécialité.</p>
+        </div>
 
-  <section class="section" id="about">
-    <h2>À propos de nous</h2>
-    <p>MMSERVICES est une entreprise dédiée à simplifier vos envois. Notre mission : offrir un service logistique moderne, efficace et digne de confiance.</p>
-  </section>
+        <div class="cta-row">
+          <a class="btn" href="#services">Découvrir nos services →</a>
+          <a class="btn outline" href="#contact">Contact / Appel</a>
+        </div>
+      </div>
+    </section>
 
-  <section class="section dark-bg" id="contact">
-    <h2>Contactez-nous</h2>
-    <p>📞 Téléphone : +243 900 000 000<br>✉️ Email : contact@mmservices.com</p>
-  </section>
+    <!-- Page 2 : Services -->
+    <section class="hpage" id="services">
+      <div class="card">
+        <h2>NOS SERVICES</h2>
+        <ul class="services-list">
+          <li>Fret aérien, routier et maritime</li>
+          <li>Dédouanement</li>
+          <li>Expédition des courriers</li>
+          <li>Expertise comptable</li>
+          <li>Services divers</li>
+        </ul>
 
-  <footer class="footer">
-    © 2025 MMSERVICES - Tous droits réservés
-  </footer>
+        <div class="info">
+          <p>Nous organisons votre comptabilité, proposons des rapports financiers adaptés et vous aidons dans la production des états financiers.</p>
+        </div>
 
-  <script>
-    const menuBtn = document.getElementById("menu-btn");
-    const closeBtn = document.getElementById("close-btn");
-    const sidebar = document.getElementById("sidebar");
+        <div class="navrow">
+          <a class="small" href="#main">← Accueil</a>
+          <a class="small" href="#destinations">Destinations →</a>
+        </div>
+      </div>
+    </section>
 
-    menuBtn.addEventListener("click", () => sidebar.classList.add("open"));
-    closeBtn.addEventListener("click", () => sidebar.classList.remove("open"));
-  </script>
-</body>
-</html>
+    <!-- Page 3 : Destinations -->
+    <section class="hpage" id="destinations">
+      <div class="card">
+        <h2>NOS DESTINATIONS</h2>
+        <p>Nous couvrons pratiquement les <strong>26 provinces</strong> de la République Démocratique du Congo. Grâce à notre réseau, nous arrivons même dans les coins les plus reculés.</p>
 
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MMServices - Provinces</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <section class="section dark-bg" id="services">
-    <h1 class="logo-text">MMSERVICES</h1>
-    <h2>Nos Services sur toute l’étendue de la RDC</h2>
-    <p>Nous intervenons dans les 26 provinces de la République Démocratique du Congo. Cliquez sur une province pour découvrir les territoires couverts.</p>
-
-    <div class="accordion">
-
-      <!-- Exemple Kinshasa -->
-      <div class="province">
-        <button class="accordion-btn">Kinshasa ▶</button>
-        <div class="accordion-content">
+        <div class="dest-grid">
           <ul>
-            <li>Funa</li><li>Lukunga</li><li>Tshangu</li><li>Mont-Amba</li><li>Selembao</li>
+            <li>Kinshasa</li><li>Goma</li><li>Lubumbashi</li><li>Mbuji-Mayi</li>
+            <li>Kananga</li><li>Kindu</li><li>Kisangani</li><li>Gemena</li>
+            <li>Lodja</li><li>Matadi</li><li>Boma</li><li>Tshikapa</li>
+            <li>Boende</li><li>Bumba</li><li>Mbandaka</li><li>Kalemie</li>
+            <li>Butembo</li><li>Kasumbalesa</li><li>Manono</li><li>Ilebo</li>
+            <li>Et autres…</li>
           </ul>
         </div>
-      </div>
 
-      <div class="province">
-        <button class="accordion-btn">Kongo-Central ▶</button>
-        <div class="accordion-content">
-          <ul><li>Muanda</li><li>Boma</li><li>Matadi</li><li>Songololo</li><li>Kimpese</li><li>Luozi</li><li>Seke-Banza</li></ul>
+        <div class="navrow">
+          <a class="small" href="#services">← Services</a>
+          <a class="small" href="#partners">Partenaires →</a>
         </div>
       </div>
+    </section>
 
-      <div class="province">
-        <button class="accordion-btn">Kwango ▶</button>
-        <div class="accordion-content">
-          <ul><li>Kasongo-Lunda</li><li>Kenge</li><li>Popokabaka</li><li>Kahemba</li><li>Feshi</li></ul>
+    <!-- Page 4 : Partenaires -->
+    <section class="hpage" id="partners">
+      <div class="card">
+        <h2>NOS PARTENAIRES</h2>
+        <p>Nous travaillons avec des acteurs nationaux et internationaux pour garantir la qualité de nos opérations.</p>
+
+        <div class="partners">
+          <!-- Remplace par de vrais logos si tu en as -->
+          <div class="partner">DSTV</div>
+          <div class="partner">GIZ</div>
+          <div class="partner">Airtel</div>
+          <div class="partner">B.C.C.</div>
+        </div>
+
+        <div class="navrow">
+          <a class="small" href="#destinations">← Destinations</a>
+          <a class="small" href="#contact">Contact →</a>
         </div>
       </div>
+    </section>
 
-      <div class="province">
-        <button class="accordion-btn">Kwilu ▶</button>
-        <div class="accordion-content">
-          <ul><li>Kikwit</li><li>Gungu</li><li>Idiofa</li><li>Bagata</li><li>Bulungu</li></ul>
+    <!-- Page 5 : Contact -->
+    <section class="hpage" id="contact">
+      <div class="card">
+        <h2>CONTACT</h2>
+
+        <p class="muted">CHEZ M&amp;M SERVICES SARL — Votre satisfaction, c'est notre ambition.</p>
+
+        <div class="contact-box">
+          <p><strong>Adresse :</strong><br>Avenue de la Paix n°8, à côté de l'ancienne Galerie Présidentielle — Kinshasa / Gombe</p>
+          <p><strong>Téléphone :</strong><br><a class="tel" href="tel:+243817179507">(+243) 81 71 79 507</a> — <a class="tel" href="tel:+243851217048">85 12 17 048</a></p>
+          <p><strong>Email :</strong><br><a class="mail" href="mailto:kongamarc@gmail.com">kongamarc@gmail.com</a></p>
+        </div>
+
+        <div class="contact-ctas">
+          <!-- boutons directs -->
+          <a class="btn large phone" href="tel:+243817179507">📞 Appeler (+243) 81 71 79 507</a>
+          <a class="btn large mailbtn" href="mailto:kongamarc@gmail.com?subject=Demande%20-%20M%26M%20Services">✉️ Envoyer un email</a>
+        </div>
+
+        <div class="navrow">
+          <a class="small" href="#partners">← Partenaires</a>
+          <a class="small" href="#main">Accueil →</a>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="province">
-        <button class="accordion-btn">Mai-Ndombe ▶</button>
-        <div class="accordion-content">
-          <ul><li>Inongo</li><li>Kutu</li><li>Kiri</li><li>Mushie</li><li>Bolobo</li></ul>
-        </div>
-      </div>
+  <footer class="footer">
+    © 2025 M&amp;M Services SARL — Nous y arriverons
+  </footer>
 
-      <div class="province">
-        <button class="accordion-btn">Tshuapa ▶</button>
-        <div class="accordion-content">
-          <ul><li>Boende</li><li>Befale</li><li>Bosondjo</li><li>Ikela</li><li>Djolu</li><li>Monkoto</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Mongala ▶</button>
-        <div class="accordion-content">
-          <ul><li>Bumba</li><li>Bongandanga</li><li>Lisala</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Nord-Ubangi ▶</button>
-        <div class="accordion-content">
-          <ul><li>Gbadolite</li><li>Mobayi-Mbongo</li><li>Yakoma</li><li>Businga</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Sud-Ubangi ▶</button>
-        <div class="accordion-content">
-          <ul><li>Gemena</li><li>Budjala</li><li>Kungu</li><li>Zongo</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Équateur ▶</button>
-        <div class="accordion-content">
-          <ul><li>Mbandaka</li><li>Basankusu</li><li>Bikoro</li><li>Bolomba</li><li>Lukolela</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Nord-Kivu ▶</button>
-        <div class="accordion-content">
-          <ul><li>Goma</li><li>Beni</li><li>Lubero</li><li>Masisi</li><li>Walikale</li><li>Rutshuru</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Sud-Kivu ▶</button>
-        <div class="accordion-content">
-          <ul><li>Bukavu</li><li>Uvira</li><li>Fizi</li><li>Walungu</li><li>Kalehe</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Maniema ▶</button>
-        <div class="accordion-content">
-          <ul><li>Kindu</li><li>Kasongo</li><li>Kabambare</li><li>Pangi</li><li>Kailo</li><li>Lubutu</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Tanganyika ▶</button>
-        <div class="accordion-content">
-          <ul><li>Kalemie</li><li>Nyunzu</li><li>Kabalo</li><li>Manono</li><li>Kongolo</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Haut-Lomami ▶</button>
-        <div class="accordion-content">
-          <ul><li>Kamina</li><li>Kaniama</li><li>Malemba-Nkulu</li><li>Bukama</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Lomami ▶</button>
-        <div class="accordion-content">
-          <ul><li>Kabinda</li><li>Ngandajika</li><li>Luilu</li><li>Lubao</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Sankuru ▶</button>
-        <div class="accordion-content">
-          <ul><li>Lusambo</li><li>Lodja</li><li>Kole</li><li>Lubefu</li><li>Katako-Kombe</li><li>Lubao</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Haut-Katanga ▶</button>
-        <div class="accordion-content">
-          <ul><li>Lubumbashi</li><li>Likasi</li><li>Kipushi</li><li>Kambove</li><li>Sakania</li><li>Kasenga</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Lualaba ▶</button>
-        <div class="accordion-content">
-          <ul><li>Kolwezi</li><li>Mutshatsha</li><li>Lubudi</li><li>Sandoa</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Haut-Uélé ▶</button>
-        <div class="accordion-content">
-          <ul><li>Isiro</li><li>Rungu</li><li>Dungu</li><li>Watsa</li><li>Niangara</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Bas-Uélé ▶</button>
-        <div class="accordion-content">
-          <ul><li>Buta</li><li>Aketi</li><li>Bondo</li><li>Ango</li><li>Poko</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Ituri ▶</button>
-        <div class="accordion-content">
-          <ul><li>Bunia</li><li>Irumu</li><li>Aru</li><li>Mahagi</li><li>Mambasa</li><li>Djugu</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Tshopo ▶</button>
-        <div class="accordion-content">
-          <ul><li>Kisangani</li><li>Banalia</li><li>Bafwasende</li><li>Opala</li><li>Isangi</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Kasaï ▶</button>
-        <div class="accordion-content">
-          <ul><li>Tshikapa</li><li>Luebo</li><li>Mweka</li><li>Kamonia</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Kasaï-Central ▶</button>
-        <div class="accordion-content">
-          <ul><li>Kananga</li><li>Demba</li><li>Luebo</li><li>Luiza</li><li>Dibaya</li></ul>
-        </div>
-      </div>
-
-      <div class="province">
-        <button class="accordion-btn">Kasaï-Oriental ▶</button>
-        <div class="accordion-content">
-          <ul><li>Mbuji-Mayi</li><li>Kabeya-Kamwanga</li><li>Lupatapata</li><li>Tshilenge</li></ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
   <script src="script.js"></script>
 </body>
 </html>
-
-<footer class="footer">
-    © 2025 MMSERVICES - Tous droits réservés
-  </footer>
