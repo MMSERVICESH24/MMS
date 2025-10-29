@@ -1,68 +1,104 @@
-body {
-  font-family: "Poppins", sans-serif;
-  color: white;
-  background: rgba(0, 10, 30, 0.9);
-  background-image: url('https://upload.wikimedia.org/wikipedia/en/5/56/UEFA_Champions_League_logo_2.svg');
-  background-size: 800px;
-  background-repeat: no-repeat;
-  background-position: center;
-  backdrop-filter: blur(10px);
-  min-height: 100vh;
+:root{
+  --uefa-blue: #0052A5;   /* couleur demandée */
+  --uefa-blue-2: #003f8a;
+  --accent: #00b4ff;
+  --bg: #071233;
+  --card-bg: rgba(255,255,255,0.04);
+  --glass: rgba(255,255,255,0.03);
+  --txt: #f4f7fb;
 }
 
-.section {
-  text-align: center;
-  padding: 60px 20px;
+/* Reset simple */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:"Poppins",sans-serif;color:var(--txt);background:linear-gradient(180deg,var(--bg),#00143a);}
+
+/* Topbar */
+.topbar{
+  position:fixed;left:0;right:0;top:0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.25), rgba(0,0,0,0.15));
+  border-bottom: 1px solid rgba(255,255,255,0.03);backdrop-filter: blur(6px);z-index:2000;
+}
+.brand{font-weight:700;color:var(--uefa-blue);letter-spacing:0.6px}
+.topnav a{color:rgba(255,255,255,0.85);text-decoration:none;margin-left:14px;padding:8px;border-radius:6px;font-size:0.95rem}
+.topnav a:hover{background:rgba(255,255,255,0.03);color:var(--accent)}
+
+/* Horizontal wrapper */
+.hwrap{
+  display:flex;
+  flex-direction:row;
+  height:100vh;
+  width:500vw; /* 5 pages */
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  padding-top:64px; /* pour topbar */
 }
 
-.logo-text {
-  font-size: 3.5rem;
-  font-weight: 900;
-  background: linear-gradient(90deg, #00b4ff, #ffffff, #007bff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 5s linear infinite;
+/* Each page (full viewport) */
+.hpage{
+  flex:0 0 100vw;
+  height:calc(100vh - 64px);
+  scroll-snap-align:start;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:30px;
 }
 
-@keyframes shine {
-  0% { background-position: 0%; }
-  100% { background-position: 100%; }
+/* Card inside page */
+.card{
+  width:min(1000px,92%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:14px;
+  padding:34px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  border: 1px solid rgba(255,255,255,0.02);
 }
 
-.accordion {
-  margin-top: 30px;
-  max-width: 800px;
-  margin-inline: auto;
-  text-align: left;
-}
+/* Headings */
+h1{font-size:2.1rem;margin:0 0 12px 0;line-height:1.05}
+.accent{color:var(--uefa-blue)}
+.lead{color:rgba(255,255,255,0.9);margin-bottom:12px;font-weight:600}
+h2{margin:0 0 14px 0;font-size:1.6rem;color:var(--accent)}
 
-.accordion-btn {
-  background: rgba(0, 30, 80, 0.8);
-  color: #fff;
-  border: none;
-  width: 100%;
-  text-align: left;
-  padding: 15px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 10px;
-  transition: background 0.3s;
-}
+/* Services list */
+.services-list{list-style:disc;margin-left:18px;margin-top:8px}
+.services-list li{margin:8px 0;font-weight:600}
 
-.accordion-btn:hover {
-  background: rgba(0, 60, 160, 0.9);
-}
+/* Destinations grid */
+.dest-grid ul{columns:2;column-gap:30px;list-style:none;padding:0;margin:12px 0}
+.dest-grid li{break-inside:avoid-column;padding:6px 0;font-weight:600}
 
-.accordion-content {
-  background: rgba(255, 255, 255, 0.05);
-  border-left: 3px solid #00b4ff;
-  padding: 0 15px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-}
+/* Partners */
+.partners{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.partner{background:var(--glass);padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);font-weight:700}
 
-.accordion-content.active {
-  padding: 10px 15px;
+/* Buttons */
+.btn{
+  display:inline-block;padding:12px 18px;border-radius:10px;background:var(--uefa-blue);color:white;text-decoration:none;font-weight:700;margin-right:12px;
+  box-shadow:0 8px 18px rgba(0,82,165,0.18);transition:transform .12s ease, box-shadow .12s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,82,165,0.22)}
+.btn.outline{background:transparent;border:2px solid rgba(255,255,255,0.06)}
+.small{color:rgba(255,255,255,0.8);text-decoration:none;font-weight:600;margin:12px}
+.cta-row{margin-top:18px}
+.contact-ctas{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+.btn.large{padding:14px 20px;font-size:1rem}
+.phone{background: linear-gradient(90deg,var(--uefa-blue),var(--uefa-blue-2))}
+
+/* contact text links */
+.tel, .mail{color:var(--accent);text-decoration:none;font-weight:700}
+.tel:hover, .mail:hover{text-decoration:underline}
+
+/* footer */
+.footer{position:fixed;left:0;right:0;bottom:0;padding:10px 12px;text-align:center;background:linear-gradient(90deg,rgba(0,0,0,0.25),transparent);font-size:0.9rem;color:rgba(255,255,255,0.65)}
+
+/* Responsive */
+@media (max-width:900px){
+  .dest-grid ul{columns:1}
+  .card{padding:20px}
+  h1{font-size:1.6rem}
+  h2{font-size:1.3rem}
+  .topnav{display:none}
 }
