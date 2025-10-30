@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>M&M Services SARL - Accueil</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil - M&M Services SARL</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="topbar">
-    <div class="brand">M&M Services SARL</div>
-    <nav class="topnav">
-      <a href="main.html">Accueil</a>
+  <!-- Bouton menu -->
+  <button class="menu-toggle" id="menuToggle">☰</button>
+
+  <!-- Menu latéral -->
+  <aside class="sidebar" id="sidebar">
+    <button class="close-btn" id="closeBtn">×</button>
+    <h2>M&M Services SARL</h2>
+    <nav>
+      <a href="index.html">Accueil</a>
       <a href="services.html">Services</a>
       <a href="destinations.html">Destinations</a>
       <a href="partners.html">Partenaires</a>
       <a href="contact.html">Contact</a>
     </nav>
-  </header>
+  </aside>
 
-  <section class="hero">
-    <div class="card">
-      <h1>BIENVENUE CHEZ<br><span class="accent">M&M SERVICES SARL</span></h1>
-      <p class="lead">Commissionnaire en douane par excellence en RDC.</p>
-      <a class="btn" href="main.html">Entrer sur le site →</a>
-    </div>
-  </section>
+  <main class="page">
+    <h1>BIENVENUE CHEZ<br><span>M&M SERVICES SARL</span></h1>
+    <p>
+      Nous sommes commissionnaire en douane par excellence en RD Congo.<br><br>
+      Vous êtes notre priorité et la raison de notre existence.<br><br>
+      M&M Services Sarl est là pour contribuer à l’épanouissement de votre business.<br><br>
+      Le fret, la douane, l’expertise comptable, le commerce général...<br>
+      C’est notre spécialité.
+    </p>
+  </main>
 
-  <footer class="footer">
-    © 2025 M&M Services SARL — Tous droits réservés
-  </footer>
-
+  <footer class="footer fade-in">
+  <div class="footer-content">
+    <p>© 2025 <strong>M&M Services SARL</strong> — Tous droits réservés.</p>
+    <p class="footer-sub">Confiance • Rapidité • Excellence</p>
+  </div>
+</footer>
   <script src="script.js"></script>
 </body>
 </html>
