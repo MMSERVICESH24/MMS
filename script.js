@@ -1,34 +1,13 @@
-// Effet sonore de clic
-const clickSound = new Audio("https://www.soundjay.com/buttons/sounds/button-16.mp3");
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.getElementById("sidebar");
+const closeBtn = document.getElementById("closeBtn");
 
-// Menu latéral rétractable
-const menuToggle = document.querySelector('.menu-toggle');
-const sidebar = document.querySelector('.sidebar');
+menuToggle.addEventListener("click", () => {
+  sidebar.classList.add("active");
+});
 
-if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-        clickSound.play();
-    });
-}
-
-// Gestion des provinces et territoires
-document.querySelectorAll('.province').forEach(province => {
-    province.addEventListener('click', () => {
-        clickSound.play();
-        const territoires = province.nextElementSibling;
-        if (territoires.classList.contains('open')) {
-            territoires.classList.remove('open');
-            territoires.style.maxHeight = null;
-        } else {
-            document.querySelectorAll('.territoires').forEach(t => {
-                t.classList.remove('open');
-                t.style.maxHeight = null;
-            });
-            territoires.classList.add('open');
-            territoires.style.maxHeight = territoires.scrollHeight + "px";
-        }
-    });
+closeBtn.addEventListener("click", () => {
+  sidebar.classList.remove("active");
 });
 
 // Défilement doux (effet fluide)
