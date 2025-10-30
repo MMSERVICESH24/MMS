@@ -3,41 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nos destinations - M&M Services SARL</title>
+  <title>Destinations - M&M Services SARL</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">M&M Services SARL</div>
-    <nav class="topnav">
+
+  <button class="menu-toggle" id="menuToggle">☰</button>
+  <aside class="sidebar" id="sidebar">
+    <button class="close-btn" id="closeBtn">×</button>
+    <h2>M&M Services SARL</h2>
+    <nav>
       <a href="index.html">Accueil</a>
       <a href="services.html">Services</a>
-      <a href="destinations.html" class="active">Destinations</a>
+      <a href="destinations.html">Destinations</a>
       <a href="partners.html">Partenaires</a>
       <a href="contact.html">Contact</a>
     </nav>
-  </header>
+  </aside>
 
   <main class="page">
-    <h2>Provinces de nos services</h2>
-    <div class="province-container">
-      <button class="province-btn">Kinshasa</button>
-      <ul class="territoires">
-        <li>Gombe</li><li>Ngaliema</li><li>Limete</li><li>Selembao</li>
-      </ul>
+    <h1>NOS DESTINATIONS</h1>
+    <p>
+      Nous couvrons pratiquement les 26 provinces de la RD Congo.<br>
+      Grâce à notre réseau de distribution élargi entre les mains des professionnels, nous arrivons même aux coins les plus reculés de notre pays tels que Butembo, Kasumbalesa, Manono, Bumba, Drodo, Mambassa, Ilebo, etc.
+    </p>
 
-      <button class="province-btn">Haut-Katanga</button>
-      <ul class="territoires">
-        <li>Lubumbashi</li><li>Kasumbalesa</li><li>Likasi</li>
-      </ul>
-      <!-- etc. -->
-    </div>
+    <section class="province-list">
+      <div class="province">
+        <button class="province-btn">▶️ Kinshasa</button>
+        <ul class="territoires">
+          <li>Gombe</li><li>Ngaliema</li><li>Limete</li><li>Selembao</li>
+        </ul>
+      </div>
+
+      <div class="province">
+        <button class="province-btn">▶️ Haut-Katanga</button>
+        <ul class="territoires">
+          <li>Lubumbashi</li><li>Likasi</li><li>Kasumbalesa</li>
+        </ul>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer">
-    © 2025 M&M Services SARL
-  </footer>
-
+  <footer class="footer">© 2025 M&M Services SARL</footer>
   <script src="script.js"></script>
 </body>
 </html>
