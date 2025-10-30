@@ -1,21 +1,43 @@
-// Smooth navigation for internal links (inline scroll to start of section)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e){
-    const target = document.querySelector(this.getAttribute('href'));
-    if(!target) return;
-    e.preventDefault();
-    // scroll the horizontal wrapper so that the target's left is visible.
-    const wrap = document.getElementById('hwrap');
-    const left = target.offsetLeft;
-    wrap.scrollTo({ left, behavior: 'smooth' });
-  });
+// Effet sonore de clic
+const clickSound = new Audio("https://www.soundjay.com/buttons/sounds/button-16.mp3");
+
+// Menu latéral rétractable
+const menuToggle = document.querySelector('.menu-toggle');
+const sidebar = document.querySelector('.sidebar');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+        clickSound.play();
+    });
+}
+
+// Gestion des provinces et territoires
+document.querySelectorAll('.province').forEach(province => {
+    province.addEventListener('click', () => {
+        clickSound.play();
+        const territoires = province.nextElementSibling;
+        if (territoires.classList.contains('open')) {
+            territoires.classList.remove('open');
+            territoires.style.maxHeight = null;
+        } else {
+            document.querySelectorAll('.territoires').forEach(t => {
+                t.classList.remove('open');
+                t.style.maxHeight = null;
+            });
+            territoires.classList.add('open');
+            territoires.style.maxHeight = territoires.scrollHeight + "px";
+        }
+    });
 });
 
-// Optional: mouse wheel → horizontal scroll for easier navigation on desktop
-const wrap = document.getElementById('hwrap');
-wrap.addEventListener('wheel', function(e){
-  if(Math.abs(e.deltaY) < 1) return;
-  // prevent vertical page scroll and move horizontally
-  e.preventDefault();
-  wrap.scrollBy({ left: e.deltaY * 1.5, behavior: 'auto' });
-}, { passive: false });
+// Défilement doux (effet fluide)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        clickSound.play();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
