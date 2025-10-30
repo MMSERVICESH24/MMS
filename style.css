@@ -102,3 +102,120 @@ h2{margin:0 0 14px 0;font-size:1.6rem;color:var(--accent)}
   h2{font-size:1.3rem}
   .topnav{display:none}
 }
+
+body {
+    background: radial-gradient(circle at center, rgba(0,50,150,0.7), rgba(0,0,30,0.95));
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+    backdrop-filter: blur(8px);
+}
+
+/* Sidebar style */
+.sidebar {
+    width: 220px;
+    background: rgba(10, 10, 30, 0.8);
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: #00aaff;
+    font-size: 26px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #00aaff;
+}
+
+/* Contenu principal */
+.main-content {
+    margin-left: 250px;
+    padding: 40px;
+}
+
+.provinces-container {
+    margin-top: 20px;
+}
+
+.province-block {
+    margin-bottom: 10px;
+}
+
+.province {
+    width: 100%;
+    text-align: left;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 6px;
+}
+
+.province:hover {
+    background: rgba(0, 100, 200, 0.4);
+}
+
+.province span {
+    margin-right: 8px;
+}
+
+.territoires {
+    background: rgba(255,255,255,0.05);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+.territoires.open {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.territoires ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.territoires ul li {
+    padding: 5px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.territoires ul li:last-child {
+    border-bottom: none;
+}
+
+.intro {
+    opacity: 0.8;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
