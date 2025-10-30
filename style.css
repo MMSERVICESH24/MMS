@@ -1,97 +1,272 @@
+/* style.css - thème bleu global pour toutes les pages */
+
+/* Reset simple */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; }
+
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f8f9fb;
-  color: #222;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #06224a; /* fond bleu sombre */
+  color: #ffffff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.45;
 }
 
-/* Bouton menu */
+/* ---------- Top / layout ---------- */
 .menu-toggle {
   position: fixed;
-  top: 15px;
-  left: 15px;
-  font-size: 24px;
-  background: #002366;
-  color: white;
+  top: 14px;
+  left: 14px;
+  z-index: 1200;
+  background: #0b3b78; /* bouton bleu */
+  color: #fff;
   border: none;
-  padding: 10px 14px;
-  border-radius: 4px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 20px;
   cursor: pointer;
-  z-index: 1001;
+  box-shadow: 0 6px 18px rgba(3,18,44,0.45);
 }
 
-/* Menu latéral */
+/* Sidebar (menu latéral) */
 .sidebar {
   position: fixed;
   top: 0;
-  left: -260px;
-  width: 250px;
+  left: -280px;
+  width: 270px;
   height: 100%;
-  background: #001a4d;
-  color: white;
+  background: linear-gradient(180deg,#03204a 0%, #052c66 100%);
+  color: #fff;
   padding: 20px;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
-  transition: left 0.3s ease;
-  z-index: 1000;
+  padding-top: 36px;
+  box-shadow: 6px 0 20px rgba(0,0,0,0.5);
+  transition: left 320ms cubic-bezier(.2,.9,.2,1);
+  z-index: 1100;
 }
 
-.sidebar.active {
-  left: 0;
-}
+/* when open */
+.sidebar.active { left: 0; }
 
-.sidebar .close-btn {
+/* close button (X) */
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
   background: transparent;
-  color: white;
   border: none;
+  color: #fff;
   font-size: 28px;
   cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 15px;
+  line-height: 1;
 }
 
+/* brand title */
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 14px;
+  letter-spacing: 0.6px;
+}
+
+/* nav links */
 .sidebar nav {
-  display: flex;
+  display:flex;
   flex-direction: column;
-  margin-top: 60px;
+  gap: 10px;
 }
 
 .sidebar nav a {
-  color: white;
+  color: #e6f0ff;
   text-decoration: none;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background .18s, color .18s;
+  font-weight: 600;
 }
 
 .sidebar nav a:hover {
+  background: rgba(240,192,64,0.09);
   color: #f0c040;
 }
 
-/* Page principale */
+/* ---------- Main pages styles (shared) ---------- */
 .page {
-  padding: 80px 20px;
-  text-align: center;
+  padding: 80px 20px 120px;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
-.btn {
-  background: #002366;
-  color: white;
-  padding: 10px 20px;
+/* hero / main landing (main.html style) */
+.main-page .hero-center,
+.hero-center {
+  min-height: calc(100vh - 120px);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 28px;
+  padding: 30px;
+}
+
+.big-title {
+  font-size: clamp(38px, 10vw, 96px);
+  line-height: 0.95;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-shadow: 0 6px 24px rgba(3,18,44,0.6);
+  font-weight: 800;
+}
+
+/* about-box in main.html */
+.about-box {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border-radius: 12px;
+  padding: 18px;
+  max-width: 820px;
+  color: #eaf2ff;
+  text-align: left;
+  font-size: 15px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+
+/* button styles */
+.btn, .enter-btn {
+  display: inline-block;
+  background: linear-gradient(180deg,#0b3b78,#05305a);
+  color: #fff;
+  padding: 12px 18px;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform .12s ease, box-shadow .12s ease, background .12s;
+  box-shadow: 0 8px 20px rgba(3,18,44,0.5);
+}
+.btn:hover, .enter-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(3,18,44,0.6);
 }
 
-.btn:hover {
-  background: #f0c040;
-  color: #002366;
-}
-
-.footer {
-  background: #001a4d;
-  color: white;
+/* page titles */
+.page h1 {
+  font-size: clamp(22px, 4.6vw, 36px);
+  margin-bottom: 12px;
+  color: #fff;
   text-align: center;
-  padding: 15px;
-  position: fixed;
+}
+
+/* paragraphs */
+.page p {
+  color: #e6f3ff;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+/* province list area (destinations) */
+.province-list {
+  margin-top: 22px;
+  display: grid;
+  gap: 12px;
+}
+
+/* province card */
+.province {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* province button (collapsible) */
+.province-btn {
+  width: 100%;
+  text-align: left;
+  padding: 14px 18px;
+  font-weight: 700;
+  background: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 16px;
+}
+
+/* territoires (hidden by default) */
+.territoires {
+  max-height: 0;
+  overflow: auto;
+  transition: max-height 280ms ease, padding 180ms ease;
+  padding: 0 18px;
+  list-style: none;
+}
+
+/* when open, allow vertical scroll and comfortable height */
+.territoires.open {
+  max-height: 220px; /* permet slider vertical */
+  padding: 12px 18px 18px 18px;
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+/* territory items */
+.territoires li {
+  padding: 8px 6px;
+  color: #dfefff;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  background: rgba(255,255,255,0.01);
+  font-size: 14px;
+}
+
+/* contact links */
+.contact-links {
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+  align-items: flex-start;
+}
+
+.contact-links a {
+  color: #e6f3ff;
+  text-decoration: none;
+  background: rgba(255,255,255,0.02);
+  padding: 10px 12px;
+  border-radius: 8px;
+  width: 100%;
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  font-weight:600;
+}
+
+/* footer (uniform) */
+.footer {
+  background: linear-gradient(90deg,#001a4d,#002366);
+  color: #fff;
+  text-align: center;
+  padding: 18px 14px;
+  font-size: 14px;
+  position: relative;
   bottom: 0;
   width: 100%;
+  border-top: 1px solid rgba(240,192,64,0.08);
+}
+
+/* footer small text */
+.footer-sub {
+  color: #d9d9d9;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* responsive */
+@media (min-width: 900px) {
+  .page { padding: 100px 30px 160px; }
+  .about-box { font-size: 16px; }
+  .province-list { max-width: 820px; margin: 20px auto; }
 }
