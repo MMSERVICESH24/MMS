@@ -41,3 +41,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.province');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const territoires = btn.nextElementSibling;
+      const icon = btn.querySelector('span');
+
+      if (territoires.classList.contains('open')) {
+        territoires.classList.remove('open');
+        icon.textContent = '▶️';
+      } else {
+        territoires.classList.add('open');
+        icon.textContent = '🔽';
+      }
+    });
+  });
+});
